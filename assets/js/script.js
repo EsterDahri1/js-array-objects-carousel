@@ -9,7 +9,7 @@ let slides = [
 
   //transform array of strings in array of objects
 
-  slides = slides.map((slide, index) => ({value: slide, i: index}));
+  slides = slides.map((slide, index) => ({value: slide, id: index}));
   console.log(slides);
   
   let activeSlide = 0;
@@ -24,7 +24,15 @@ let slides = [
   
   /* Print all images into the dom */
   // loop over the slides 
-  for (let i = 0; i < slides.length; i++) {
+ slides.forEach(function (slide) {
+    console.log(slide);
+
+    const slideMarkup = `<img class="${activeSlide === slide ? 'active' : '' }" src="${slide}" alt="">`
+
+    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
+ })
+ 
+ /* for (let i = 0; i < slides.length; i++) {
     const slidePath = slides[i];
     console.log(slidePath);
     
@@ -34,7 +42,7 @@ let slides = [
   
     sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
   
-  }
+  }*/
   
   
   /* 
