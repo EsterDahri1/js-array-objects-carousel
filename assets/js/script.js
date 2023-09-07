@@ -1,13 +1,38 @@
 console.log('hello');
 
+
+/*CONSEGNA
+Modifichiamo il codice dell'esercizio per renderlo funzionante con un array di oggetti al posto di un array di stringhe.
+Bonus 0:
+Non eramamo ancora a conoscenda di molti strumenti utili, come ad esempio le funzioni. É possibile fare refactoring del codice, pulendolo e creando quanche funzione che possa rendere tutto piú leggibile e pulito?
+Bonus 1:
+Sperimentiamo attraverso l'uso delle timing functions anche una funzionalità di scorrimento al nostro carosello:
+al click di un bottone o già dall'inizio possiamo far partire, ad intervalli di tempo a piacere, lo scorrimento delle immagini disponibili nel carosello stesso.
+Bonus 2:
+E se volessi un bottone per invertire la "direzione" del carosello?*/
+
 /* Define the slides list */
 const slides = [
-    './assets/img/01.webp', //0
-    './assets/img/02.webp', //1
-    './assets/img/03.webp', //etc
-    './assets/img/04.webp',
-    './assets/img/05.webp',
-  ]
+    {
+        image: './assets/img/01.webp'
+    }, //0
+
+    {
+        image: './assets/img/02.webp'
+    }, //1
+
+    {
+        image: './assets/img/03.webp'
+    }, //etc
+
+    {
+        image: './assets/img/04.webp'
+    },
+
+    {
+        image: './assets/img/05.webp'
+    }
+  ];
   
   let activeSlide = 0;
   
@@ -20,19 +45,20 @@ const slides = [
   //console.log(sliderImagesEl);
   
   /* Print all images into the dom */
-  // loop over the slides 
-  for (let i = 0; i < slides.length; i++) {
-    const slidePath = slides[i];
-    console.log(slidePath);
+//   // loop over the slides 
+//   for (let i = 0; i < slides.length; i++) {
+//     const slidePath = slides[i];
+//     console.log(slidePath);
     
-    // for each slide we create the markup
-    const slideMarkup = `<img class="${activeSlide === i ? 'active' : '' }" src="${slidePath}" alt="">`
-    //console.log(slideMarkup);
+//     // for each slide we create the markup
+//     const slideMarkup = `<img class="${activeSlide === i ? 'active' : '' }" src="${slidePath}" alt="">`
+//     //console.log(slideMarkup);
   
-    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
+//     sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
   
-  }
+//   }
   
+
   
   /* 
   
@@ -47,35 +73,10 @@ const slides = [
   condition ? 'code to run' : 'code to run'
   
   */
-  
-  
-  /* 
-  
-  MILESTONE 3
-  Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
-  
-  */
+
   
   const slidesImages = document.querySelectorAll('.slider .images > img')
   console.log(slidesImages);
-  
-  
-  
-  /* 
-  BONUS 1:
-  Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
-  
-  */
-  
-  /* 
-  
-  BONUS 2:
-  Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, 
-  come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato. 
-  Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
-  
-  */
-  
   
   const thumbsElement = document.querySelector('.thumbnails')
   
