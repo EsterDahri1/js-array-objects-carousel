@@ -9,7 +9,7 @@ let slides = [
 
   //transform array of strings in array of objects
 
-  slides = slides.map((slide, index) => ({value: slide, id:index +1}));
+  slides = slides.map((slide, index) => ({value: slide, i: index}));
   console.log(slides);
   
   let activeSlide = 0;
