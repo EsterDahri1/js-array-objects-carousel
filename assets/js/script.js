@@ -1,16 +1,23 @@
 /* Define the slides list */
 let slides = [
-    './assets/img/01.webp', //0
-    './assets/img/02.webp', //1
-    './assets/img/03.webp', //etc
-    './assets/img/04.webp',
-    './assets/img/05.webp',
-  ]
+  {
+    image: './assets/img/01.webp'
+  }, //0
+  {
+    image: './assets/img/02.webp'
+  }, //1
+  {
+    image: './assets/img/03.webp'
+  }, //etc
+  {
+    image: './assets/img/04.webp'
+  },
+  {
+    image: './assets/img/05.webp'
+  },
+]
 
   //transform array of strings in array of objects
-
-  slides = slides.map((slide, index) => ({value: slide, id: index}));
-  console.log(slides);
   
   let activeSlide = 0;
   
@@ -21,30 +28,31 @@ let slides = [
   
   
   //console.log(sliderImagesEl);
+
+  slides.forEach((slide, index) =>{
+    const slideMarkup = generateSlideMarkup(activeSlide, slide, i)
+
+    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
+  })
   
   /* Print all images into the dom */
   // loop over the slides 
- slides.forEach(function (slide) {
-    console.log(slide);
-
-    const slideMarkup = `<img class="${activeSlide === slide ? 'active' : '' }" src="${slide}" alt="">`
-
-    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
- })
  
- /* for (let i = 0; i < slides.length; i++) {
-    const slidePath = slides[i];
-    console.log(slidePath);
+ /*for (let i = 0; i < slides.length; i++) {
+    const slideObj = slides[i];
+    console.log(slideObj);
     
-    // for each slide we create the markup
-    const slideMarkup = `<img class="${activeSlide === i ? 'active' : '' }" src="${slidePath}" alt="">`
+    / for each slide we create the markup
+    const slideMarkup = generateSlideMarkup(activeSlide, slideObj, i)
     //console.log(slideMarkup);
   
     sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
   
   }*/
   
-  
+    function generateSlideMarkup(activeSlide, slide, index){
+    return  `<img class="${activeSlide === index ? 'active' : '' }" src="${slideObj.image}" alt="">`
+  }
   /* 
   
   if(condition) {
@@ -69,23 +77,7 @@ let slides = [
   
   const slidesImages = document.querySelectorAll('.slider .images > img')
   console.log(slidesImages);
-  
-  
-  
-  /* 
-  BONUS 1:
-  Aggiungere il ciclo infinito del carosello. Ovvero se è attiva la prima immagine e l'utente clicca la freccia per andare all’immagine precedente, dovrà comparire l’ultima immagine dell’array e viceversa.
-  
-  */
-  
-  /* 
-  
-  BONUS 2:
-  Aggiungere la visualizzazione di tutte le thumbnails sulla destra dell’immagine grande attiva, 
-  come nello screenshot proposto. Tutte le miniature avranno un layer di opacità scura, tranne quella corrispondente all’immagine attiva, che invece avrà un bordo colorato. 
-  Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di miniatura attiva.
-  
-  */
+
   
   
   const thumbsElement = document.querySelector('.thumbnails')
