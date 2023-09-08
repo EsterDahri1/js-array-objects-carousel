@@ -30,9 +30,7 @@ let slides = [
   //console.log(sliderImagesEl);
 
   slides.forEach((slide, index) =>{
-    const slideMarkup = generateSlideMarkup(activeSlide, slide, i)
-
-    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
+    
   })
   
   /* Print all images into the dom */
@@ -49,10 +47,6 @@ let slides = [
     sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup)
   
   }*/
-  
-    function generateSlideMarkup(activeSlide, slide, index){
-    return  `<img class="${activeSlide === index ? 'active' : '' }" src="${slideObj.image}" alt="">`
-  }
   /* 
   
   if(condition) {
