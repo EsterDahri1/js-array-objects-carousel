@@ -25,6 +25,7 @@ let slides = [
   const sliderImagesEl = document.querySelector('.slider .images')
   const prevEl = document.querySelector('.prev')
   const nextEl = document.querySelector('.next')
+  const thumbsElement = document.querySelector('.thumbnails');
   
   
   //console.log(sliderImagesEl);
@@ -39,6 +40,13 @@ let slides = [
 
     //insert Markup in DOM
     sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup);
+
+    //create markup for thumbnail
+    const thumbMarkup = `<img class="thumb ${activeSlide === index ? 'active' : ''}" src="./assets/img/${slidePath}" alt="">`
+    //console.log(thumbMarkup);
+  
+    //insert Markup in DOM
+    thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
   })
   
   /* Print all images into the dom */
@@ -72,24 +80,9 @@ let slides = [
   
   */
   
-  const slidesImages = document.querySelectorAll('.slider .images > img')
+  const slidesImages = document.querySelectorAll('.slider .images > img');
   console.log(slidesImages);
 
-  
-  
-  const thumbsElement = document.querySelector('.thumbnails')
-  
-  slides.forEach((slide , index) =>{
-    const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${slidePath}" alt="">`
-    //console.log(thumbMarkup);
-  
-    thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
-    
-  })
-  
-  
-  
-  
   
   // intercept click on the next icon 
   nextEl.addEventListener('click', function(){
