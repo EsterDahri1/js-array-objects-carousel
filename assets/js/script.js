@@ -1,19 +1,19 @@
 /* Define the slides list */
 let slides = [
   {
-    image: './assets/img/01.webp'
+    image: '01.webp'
   }, //0
   {
-    image: './assets/img/02.webp'
+    image: '02.webp'
   }, //1
   {
-    image: './assets/img/03.webp'
+    image: '03.webp'
   }, //etc
   {
-    image: './assets/img/04.webp'
+    image: '04.webp'
   },
   {
-    image: './assets/img/05.webp'
+    image: '05.webp'
   },
 ]
 
@@ -31,6 +31,14 @@ let slides = [
 
   slides.forEach((slide, index) =>{
     
+    //find the path of the image
+    const slidePath = slide.image;
+
+    //create markup for slide
+    const slideMarkup = `<img class="${activeSlide === index ? 'active' : ''}" src="./assets/img/${slidePath}" alt="">`;
+
+    //insert Markup in DOM
+    sliderImagesEl.insertAdjacentHTML('beforeend', slideMarkup);
   })
   
   /* Print all images into the dom */
