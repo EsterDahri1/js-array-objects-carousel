@@ -65,12 +65,7 @@ let slides = [
   
   // terary operator
   
-  condition ? 'code to run' : 'code to run'
-  
-  */
-  
-  
-  /* 
+  condition ? 'code to run' : 'code to run' 
   
   MILESTONE 3
   Al click dell'utente sulle frecce, il programma cambierà l’immagine attiva, che quindi verrà visualizzata al posto della precedente.
@@ -84,14 +79,13 @@ let slides = [
   
   const thumbsElement = document.querySelector('.thumbnails')
   
-  for (let i = 0; i < slides.length; i++) {
-    const thumbPath = slides[i];
-    const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${thumbPath}" alt="">`
+  slides.forEach((slide , index) =>{
+    const thumbMarkup = `<img class="thumb ${activeSlide === i ? 'active' : ''}" src="${slidePath}" alt="">`
     //console.log(thumbMarkup);
   
     thumbsElement.insertAdjacentHTML('beforeend', thumbMarkup)
     
-  }
+  })
   
   
   
